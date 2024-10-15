@@ -17,7 +17,7 @@ JFW is an project built on the Laravel framework using Domain-Driven Design (DDD
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/jfw.git
+git clone https://github.com/boykioyb/jfw
 ```
 2. Install Dependencies
 Navigate to the project directory and install the dependencies:
@@ -109,14 +109,5 @@ php artisan make:module ModuleName
 If you encounter any issues, please check the Issues section on GitHub or open a new Issue.
 
 ## License
-MIT License. See the LICENSE file for more details.
-```bash
-### **How to Use the README.md File**
 
-- **Clone the project:** Provide the clone link for your repository.
-- **Environment configuration:** Guide on setting up the `.env` file.
-- **Project structure:** Introduce how the project is organized according to DDD.
-- **Module creation commands:** Include commands for creating modules and new commands.
-
-Feel free to customize any part of this README to better fit your project's specifics! If you have any other requests, let me know!
-```
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
