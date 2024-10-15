@@ -28,4 +28,22 @@ abstract class BaseServiceProvider extends ServiceProvider
 
         }
     }
+
+    protected function loadRepositories($moduleName)
+    {
+        $module = 'app/Modules/' . $moduleName;
+        $repositoriesPath = "$module/Domains/Repositories";
+
+        if (File::isDirectory($repositoriesPath)) {
+            $repositories = File::files($repositoriesPath);
+            foreach ($repositories as $repository) {
+                $repositoryInterface = "App\\Modules\\$moduleName\\Domains\\Repositories\\" . $repository->getFilenameWithoutExtension();
+                $repositoryClass = "App\\Modules\\$moduleName\\Infrastructure\\Persistence\\Repositories\\" . $repository->getFilenameWithoutExtension();
+
+                if (class_exists($repositoryInterface) && class_exists($repositoryClass)) {
+                    $this->app->bind($repositoryInterface, $repositoryClass);
+                }
+            }
+        }
+    }
 }
