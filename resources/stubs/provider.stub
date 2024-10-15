@@ -35,6 +35,7 @@ class {{ name }}ServiceProvider extends BaseServiceProvider
         ], 'config');
 
         $this->loadCommands('{{ name }}');
+        $this->loadRepositories('{{ name }}');
 
     }
 }

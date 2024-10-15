@@ -3,9 +3,8 @@
 namespace App\Modules\{{ namespace }}\Infrastructure\Persistence\Repositories;
 
 use App\Modules\{{ namespace }}\Domains\Repositories\{{ name }}Repository;
-use App\Modules\{{ namespace }}\Domains\Entities\{{ name }};
+use App\Modules\{{ namespace }}\Infrastructure\Persistence\Models\{{ name }};
 use App\Shared\Repositories\RepositoryImpl;
-use Illuminate\Support\Facades\DB;
 
 class {{ name }}RepositoryImpl extends RepositoryImpl implements {{ name }}Repository
 {
