@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Infrastructure\Middleware;
+
+use Closure;
+
+class {{ name }}Middleware
+{
+    public function handle($request, Closure $next)
+    {
+        // Logic middleware
+        return $next($request);
+    }
+}

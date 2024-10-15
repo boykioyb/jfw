@@ -1,0 +1,16 @@
+<?php
+
+return [
+    // Các cấu hình mặc định cho module {{ name }}
+    'default' => [
+        'name' => '{{ name }}',
+        'version' => '1.0.0',
+    ],
+
+    // Ví dụ về cấu hình liên quan đến database
+    'database' => [
+        'table_name' => '{{ table_name }}',
+    ],
+
+    // Các config khác...
+];

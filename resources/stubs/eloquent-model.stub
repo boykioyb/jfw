@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Infrastructure\Persistence\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class {{ name }} extends Model
+{
+    protected $table = '{{ table_name }}';
+
+    protected $fillable = [
+        {{ fillable }}
+    ];
+
+}

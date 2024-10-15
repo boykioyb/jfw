@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Presentation\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class {{ name }}Console extends Command
+{
+    protected $signature = 'command:{{ name | snake_case }}';
+    protected $description = 'Mô tả lệnh';
+
+    public function handle()
+    {
+        // Logic xử lý console command
+    }
+}

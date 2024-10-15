@@ -1,0 +1,8 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Domains\Entities;
+
+class {{ name }}
+{
+    // Các thuộc tính của Entity
+}

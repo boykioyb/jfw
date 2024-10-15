@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Presentation\API\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+
+class {{ moduleName }}RouteServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        $this->registerRoutes();
+    }
+
+    protected function registerRoutes()
+    {
+        Route::middleware(['api'])
+             ->namespace('{{ namespace }}\Presentation\API\Controllers')
+             ->group(base_path('app/{{ moduleName }}/Presentation/API/Routes/api.php'));
+    }
+}

@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Presentation\Task;
+
+class {{ name }}Task
+{
+    public function handle()
+    {
+        // Logic xử lý Task (Cronjob)
+    }
+}

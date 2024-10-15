@@ -1,0 +1,8 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Application\Commands;
+
+class Create{{ name }}Command
+{
+    // Logic để xử lý Command
+}

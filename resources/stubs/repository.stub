@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Domains\Repositories;
+use App\Shared\Repositories\Repository;
+
+interface {{ name }}Repository extends Repository
+{
+    // Các phương thức của repository
+}

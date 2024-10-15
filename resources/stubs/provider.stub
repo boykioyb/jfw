@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Infrastructure\Providers;
+
+use App\Shared\Providers\BaseServiceProvider;
+use App\Modules\{{ namespace }}\Domains\Repositories\{{ name }}Repository;
+use App\Modules\{{ namespace }}\Infrastructure\Persistence\Repositories\{{ name }}RepositoryImpl;
+
+class {{ name }}ServiceProvider extends BaseServiceProvider
+{
+    public function register()
+    {
+        // Đăng ký các dịch vụ
+        $this->app->bind({{ name }}Repository::class, {{ name }}RepositoryImpl::class);
+
+        $this->mergeConfigFrom(
+           __DIR__ . '/../Config/config.php', '{{ name }}'
+        );
+    }
+
+    public function boot()
+    {
+        // Khởi tạo các thành phần khác
+
+        // Load migration
+        $this->loadMigrationsFrom(__DIR__ . '/../Persistence/Migrations');
+
+        // Load route API
+        $this->loadRoutesFrom(__DIR__ . '/../../Presentation/API/Routes/api.php');
+
+
+        // Publish config file khi dùng `php artisan vendor:publish`
+        $this->publishes([
+          __DIR__ . '/../Config/config.php' => config_path('{{ name }}.php'),
+        ], 'config');
+
+        $this->loadCommands('{{ name }}');
+
+    }
+}

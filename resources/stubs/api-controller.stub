@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Modules\{{ namespace }}\Presentation\API\Controllers;
+
+use App\Shared\Http\Controllers\Controller;
+
+class {{ name }}Controller extends Controller
+{
+    public function index()
+    {
+        // Logic xử lý yêu cầu API
+
+        return response()->json("OK");
+    }
+}

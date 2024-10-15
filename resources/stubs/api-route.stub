@@ -1,0 +1,9 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Modules\{{ namespace }}\Presentation\API\Controllers\{{ name }}Controller;
+
+// Định nghĩa các route cho module {{ moduleName }}
+Route::prefix('{{ route_prefix }}')->group(function () {
+    Route::get('/', [{{ name }}Controller::class, 'index'])->name('{{ name_lower }}.index');
+});
