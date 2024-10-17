@@ -7,9 +7,14 @@ app/
 │   │   │   └── [EntityName].php                # Các thực thể (Entities)
 │   │   ├── Repositories/
 │   │   │   └── [EntityRepository].php          # Các interface cho Repository
+│   │   ├── Events/
+│   │   │   └── ProductCreated.php               # Event khi sản phẩm được tạo
 │   │   ├── Services/                           # Nghiệp vụ của domain (tùy chọn)
 │   │   └── ValueObjects/                       # Các giá trị đối tượng (Value Objects)
+│   │   └── Mappers/                            # Chuyển đổi hoặc ánh xạ dữ liệu giữa các tầng
 │   ├── Application/
+│   │   ├── Listeners/
+│   │   │   └── NotifyAdminWhenProductCreated.php # Listener cho event ProductCreated
 │   │   ├── Commands/
 │   │   │   └── [CommandUseCase].php            # Các UseCase kiểu Command
 │   │   ├── Queries/
@@ -26,15 +31,10 @@ app/
 │   │   │   └── ProductServiceProvider.php       # Provider của module Product
 │   │   ├── Middleware/
 │   │   │   └── ExampleMiddleware.php            # Middleware của module Product
-│   │   ├── Events/
-│   │   │   └── ProductCreated.php               # Event khi sản phẩm được tạo
-│   │   ├── Listeners/
-│   │   │   └── NotifyAdminWhenProductCreated.php # Listener cho event ProductCreated
 │   │   ├── Policies/
 │   │   │   └── ProductPolicy.php                # Policy của Product
 │   │   └── Factories/
 │   │       └── ProductFactory.php               # Factory để tạo dữ liệu giả (dùng cho test)
-│   └── Presentation/
 │   └── Presentation/
 │       ├── API/                                # API dành cho client
 │       │   ├── Controllers/                    # Controller xử lý API request
