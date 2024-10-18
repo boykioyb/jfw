@@ -1,6 +1,6 @@
 <?php
 
 return [
-    \App\Shared\Providers\AppServiceProvider::class,
+    \App\Shared\Infrastructure\Providers\AppServiceProvider::class,
     Prettus\Repository\Providers\RepositoryServiceProvider::class,
 ];

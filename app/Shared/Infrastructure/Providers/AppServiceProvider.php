@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Providers;
+namespace App\Shared\Infrastructure\Providers;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
@@ -19,13 +19,17 @@ class AppServiceProvider extends ServiceProvider
 
     protected function loadModules()
     {
-        $modulesPath = base_path('app/Modules');
+        $modulesPath = base_path('app');
         if (File::isDirectory($modulesPath)) {
             $modules = File::directories($modulesPath);
 
             foreach ($modules as $module) {
                 $moduleName = basename($module);
-                $providerClass = "\\App\\Modules\\$moduleName\\Infrastructure\\Providers\\{$moduleName}ServiceProvider";
+                if ($moduleName === 'Shared') {
+                    continue;
+                }
+
+                $providerClass = "\\App\\$moduleName\\Infrastructure\\Providers\\{$moduleName}ServiceProvider";
                 if (class_exists($providerClass)) {
                     $this->app->register($providerClass);
                 }

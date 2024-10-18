@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Domains\Repositories;
-use App\Shared\Repositories\Repository;
+namespace App\{{ namespace }}\Domain\Repositories;
+use App\Shared\Domain\Repositories\IRepository;
 
-interface {{ name }}Repository extends Repository
+interface I{{ name }}Repository extends IRepository
 {
     // Các phương thức của repository
 }

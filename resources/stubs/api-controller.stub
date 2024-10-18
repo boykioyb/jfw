@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Presentation\API\Controllers;
+namespace App\{{ namespace }}\Presentation\API\Controllers;
 
-use App\Shared\Http\Controllers\Controller;
+use App\Shared\Presentation\API\Controllers\Controller;
 
 class {{ name }}Controller extends Controller
 {

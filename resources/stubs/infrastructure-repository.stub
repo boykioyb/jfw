@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Infrastructure\Persistence\Repositories;
+namespace App\{{ namespace }}\Infrastructure\Persistence\Repositories;
 
-use App\Modules\{{ namespace }}\Domains\Repositories\{{ name }}Repository;
-use App\Modules\{{ namespace }}\Infrastructure\Persistence\Models\{{ name }};
+use App\{{ namespace }}\Domain\Repositories\I{{ name }}Repository;
+use App\{{ namespace }}\Infrastructure\Persistence\Models\{{ name }};
 use App\Shared\Repositories\RepositoryImpl;
 
-class {{ name }}RepositoryImpl extends RepositoryImpl implements {{ name }}Repository
+class {{ name }}RepositoryImpl extends RepositoryImpl implements I{{ name }}Repository
 {
     public function model()
     {

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Infrastructure\Providers;
+namespace App\{{ namespace }}\Infrastructure\Providers;
 
-use App\Shared\Providers\BaseServiceProvider;
-use App\Modules\{{ namespace }}\Domains\Repositories\{{ name }}Repository;
-use App\Modules\{{ namespace }}\Infrastructure\Persistence\Repositories\{{ name }}RepositoryImpl;
+use App\Shared\Infrastructure\Providers\BaseServiceProvider;
+use App\{{ namespace }}\Domain\Repositories\I{{ name }}Repository;
+use App\{{ namespace }}\Infrastructure\Persistence\Repositories\{{ name }}RepositoryImpl;
 
 class {{ name }}ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
         // Đăng ký các dịch vụ
-        $this->app->bind({{ name }}Repository::class, {{ name }}RepositoryImpl::class);
+        $this->app->bind(I{{ name }}Repository::class, {{ name }}RepositoryImpl::class);
 
         $this->mergeConfigFrom(
            __DIR__ . '/../Config/config.php', '{{ name }}'

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Application\Queries;
+namespace App\{{ namespace }}\Application\Queries;
 
 class Get{{ name }}Query
 {

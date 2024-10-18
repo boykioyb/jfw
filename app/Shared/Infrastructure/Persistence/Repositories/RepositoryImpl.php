@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Shared\Repositories;
+namespace App\Shared\Infrastructure\Persistence\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 

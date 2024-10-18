@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Modules\Tool\Infrastructure\Providers;
+namespace App\Tool\Infrastructure\Providers;
 
-use App\Shared\Providers\BaseServiceProvider;
-use Illuminate\Support\Facades\File;
+use App\Shared\Infrastructure\Providers\BaseServiceProvider;
 
 class ToolServiceProvider extends BaseServiceProvider
 {

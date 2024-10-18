@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\{{ namespace }}\Infrastructure\Middleware;
+namespace App\{{ namespace }}\Infrastructure\Middleware;
 
 use Closure;
 
