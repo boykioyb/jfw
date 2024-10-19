@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\{{ namespace }}\Infrastructure\Persistence\Models;
 
@@ -12,4 +13,9 @@ class {{ name }} extends Model
         {{ fillable }}
     ];
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setConnection(config('{{ name }}.database.connections.' . config('{{ name }}.database.default')));
+    }
 }

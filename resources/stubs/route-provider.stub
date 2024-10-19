@@ -1,21 +1,25 @@
 <?php
+declare(strict_types=1);
 
 namespace App\{{ namespace }}\Infrastructure\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Shared\Infrastructure\Providers\BaseRouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
-class {{ moduleName }}RouteServiceProvider extends ServiceProvider
+class RouteServiceProvider extends BaseRouteServiceProvider
 {
+
     public function boot()
     {
-        $this->registerRoutes();
-    }
+        $routes = config('{{ name }}.routes');
 
-    protected function registerRoutes()
-    {
-        Route::middleware(['api'])
-             ->namespace('{{ namespace }}\Presentation\API\Controllers')
-             ->group(base_path('app/{{ moduleName }}/Presentation/API/Routes/api.php'));
+        foreach ($routes as $route) {
+            Route::middleware($route['middleware'])
+                ->prefix($route['prefix'])
+                ->namespace($route['namespace'])
+                ->as($route['as'])
+                ->group($route['path'])
+                ->domain($route['domain'] ?? null);
+        }
     }
 }

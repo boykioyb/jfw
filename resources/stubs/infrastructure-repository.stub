@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace App\{{ namespace }}\Infrastructure\Persistence\Repositories;
 
 use App\{{ namespace }}\Domain\Repositories\I{{ name }}Repository;
 use App\{{ namespace }}\Infrastructure\Persistence\Models\{{ name }};
-use App\Shared\Repositories\RepositoryImpl;
+use App\Shared\Infrastructure\Persistence\Repositories\RepositoryImpl;
 
 class {{ name }}RepositoryImpl extends RepositoryImpl implements I{{ name }}Repository
 {

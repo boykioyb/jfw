@@ -1,8 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace App\{{ namespace }}\Application\Queries;
 
-class Get{{ name }}Query
+use App\Shared\Application\Queries\BaseQuery;
+
+class Get{{ name }}Query extends BaseQuery
 {
     // Logic để xử lý Query
+    public function execute()
+    {
+        // TODO: Implement execute() method.
+    }
 }

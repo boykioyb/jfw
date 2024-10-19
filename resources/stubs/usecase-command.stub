@@ -1,8 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace App\{{ namespace }}\Application\Commands;
 
-class Create{{ name }}Command
+use App\Shared\Application\Commands\BaseCommand;
+
+class Create{{ name }}Command  extends BaseCommand
 {
-    // Logic để xử lý Command
+   // Logic để xử lý Command
+   public function execute()
+   {
+      // TODO: Implement execute() method.
+   }
 }
