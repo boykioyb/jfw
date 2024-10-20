@@ -4,18 +4,11 @@ declare(strict_types=1);
 namespace App\{{ namespace }}\Infrastructure\Providers;
 
 use App\Shared\Infrastructure\Providers\BaseServiceProvider;
-use App\{{ namespace }}\Domain\Repositories\I{{ name }}Repository;
-use App\{{ namespace }}\Infrastructure\Persistence\Repositories\{{ name }}RepositoryImpl;
 
 class {{ name }}ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        // Đăng ký các dịch vụ
-        $this->app->bind(I{{ name }}Repository::class, {{ name }}RepositoryImpl::class);
-
-        $this->app->register(RouteServiceProvider::class);
-
         $this->mergeConfigFrom(
            __DIR__ . '/../Config/config.php', '{{ name }}'
         );
@@ -36,6 +29,7 @@ class {{ name }}ServiceProvider extends BaseServiceProvider
 
         $this->loadCommands('{{ name }}');
         $this->loadRepositories('{{ name }}');
+        $this->loadRoutes('{{ name }}');
 
     }
 }

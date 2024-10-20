@@ -3,13 +3,22 @@ declare(strict_types=1);
 
 namespace App\{{ namespace }}\Application\Queries;
 
+use App\{{ name }}\Domain\Repositories\I{{ name }}Repository;
 use App\Shared\Application\Queries\BaseQuery;
 
-class Get{{ name }}Query extends BaseQuery
+class Get{{ name }}ListQuery extends BaseQuery
 {
+    private $repository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->repository = app(I{{ name }}Repository::class);
+    }
+
     // Logic để xử lý Query
     public function execute()
     {
-        // TODO: Implement execute() method.
+        return $this->repository->all();
     }
 }

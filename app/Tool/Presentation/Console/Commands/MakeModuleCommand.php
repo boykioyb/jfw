@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Tool\Presentation\Console;
+namespace App\Tool\Presentation\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
-class MakeModuleConsole extends Command
+class MakeModuleCommand extends Command
 {
     protected $signature = 'make:module {name}';
     protected $description = 'Tạo một module mới theo cấu trúc ModuleName/Domain';
@@ -38,7 +38,6 @@ class MakeModuleConsole extends Command
             "app/$moduleName/Presentation/API/Routes",
             "app/$moduleName/Presentation/API/Controllers",
             "app/$moduleName/Presentation/Console",
-            "app/$moduleName/Presentation/Task",
         ];
 
         foreach ($directories as $directory) {
@@ -64,7 +63,6 @@ class MakeModuleConsole extends Command
             'migration.stub' => "app/$moduleName/Infrastructure/Persistence/Migrations/{{ timestamp }}_create_".  strtolower(Str::plural($moduleName)) ."_table.php",
             'config.stub' => "app/$moduleName/Infrastructure/Config/config.php",
             'provider.stub' => "app/$moduleName/Infrastructure/Providers/{$moduleName}ServiceProvider.php",
-            'route-provider.stub' => "app/$moduleName/Infrastructure/Providers/RouteServiceProvider.php",
         ];
 
         foreach ($stubFiles as $stub => $file) {

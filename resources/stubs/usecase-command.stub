@@ -4,9 +4,18 @@ declare(strict_types=1);
 namespace App\{{ namespace }}\Application\Commands;
 
 use App\Shared\Application\Commands\BaseCommand;
+use App\{{ name }}\Domain\Repositories\I{{ name }}Repository;
 
 class Create{{ name }}Command  extends BaseCommand
 {
+  private $repository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->repository = app(I{{ name }}Repository::class);
+    }
+
    // Logic để xử lý Command
    public function execute()
    {
