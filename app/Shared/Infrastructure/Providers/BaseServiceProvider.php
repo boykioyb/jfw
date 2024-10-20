@@ -62,14 +62,27 @@ abstract class BaseServiceProvider extends ServiceProvider
                     return Limit::perMinute(60)->by(optional(request()->user())->id ?: request()->ip());
                 });
             }
+            $routeConfig = Route::middleware($route['middleware']);
+            if (!empty($route['domain'])) {
+                $routeConfig->domain($route['domain']);
+            }
 
-            Route::middleware($route['middleware'])
-                ->prefix($route['prefix'])
-                ->namespace($route['namespace'])
-                ->as($route['as'])
-                ->group($route['path'])
-                ->domain($route['domain'] ?? null);
+            if (!empty($route['as'])) {
+                $routeConfig->name($route['as']);
+            }
+            if (!empty($route['prefix'])) {
+                $routeConfig->prefix($route['prefix']);
+            }
+            if (!empty($route['namespace'])) {
+                $routeConfig->namespace($route['namespace']);
+            }
+
+            if (!empty($route['path'])) {
+                $routeConfig->group($route['path']);
+            }
+
         }
+
     }
 
 }

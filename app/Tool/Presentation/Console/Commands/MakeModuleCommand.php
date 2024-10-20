@@ -37,7 +37,9 @@ class MakeModuleCommand extends Command
             "app/$moduleName/Presentation/API/Routes",
             "app/$moduleName/Presentation/API/Controllers",
             "app/$moduleName/Presentation/API/Middleware",
-            "app/$moduleName/Presentation/Console",
+            "app/$moduleName/Presentation/Console/Routes",
+            "app/$moduleName/Presentation/Console/Controllers",
+            "app/$moduleName/Presentation/Console/Middleware",
         ];
 
         foreach ($directories as $directory) {
@@ -52,12 +54,12 @@ class MakeModuleCommand extends Command
     {
         $stubFiles = [
             'api-route.stub' => "app/$moduleName/Presentation/API/Routes/api.php",
+            'middleware.stub' => "app/$moduleName/Presentation/API/Middleware/{$moduleName}Middleware.php",
             'api-controller.stub' => "app/$moduleName/Presentation/API/Controllers/{$moduleName}Controller.php",
             'entity.stub' => "app/$moduleName/Domain/Entities/{$moduleName}.php",
             'repository.stub' => "app/$moduleName/Domain/Repositories/I{$moduleName}Repository.php",
             'usecase-command.stub' => "app/$moduleName/Application/Commands/Create{$moduleName}Command.php",
             'usecase-query.stub' => "app/$moduleName/Application/Queries/Get{$moduleName}Query.php",
-            'middleware.stub' => "app/$moduleName/Infrastructure/Middleware/{$moduleName}Middleware.php",
             'eloquent-model.stub' => "app/$moduleName/Infrastructure/Persistence/Models/{$moduleName}.php",
             'infrastructure-repository.stub' => "app/$moduleName/Infrastructure/Persistence/Repositories/{$moduleName}RepositoryImpl.php",
             'migration.stub' => "app/$moduleName/Infrastructure/Persistence/Migrations/{{ timestamp }}_create_".  strtolower(Str::plural($moduleName)) ."_table.php",

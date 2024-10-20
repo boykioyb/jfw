@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\{{ namespace }}\Presentation\API\Controllers\{{ name }}Controller;
 
-// Định nghĩa các route cho module {{ moduleName }}
+// Định nghĩa các route cho module {{ name }}
 Route::prefix('{{ route_prefix }}')->group(function () {
     Route::get('/', [{{ name }}Controller::class, 'index'])->name('{{ route_prefix }}.index');
 });
