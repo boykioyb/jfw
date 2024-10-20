@@ -11,7 +11,6 @@ return new class extends Migration
     {
         Schema::create('{{ table_name }}', function (Blueprint $table) {
             $table->id();
-            {{ columns }}
             $table->timestamps();
         });
     }

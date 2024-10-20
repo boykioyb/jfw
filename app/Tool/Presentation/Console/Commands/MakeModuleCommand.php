@@ -79,11 +79,11 @@ class MakeModuleCommand extends Command
         }
     }
 
-    protected function getStubContent($stubPath, $moduleName, $namespace)
+    protected function getStubContent($stubPath, $moduleName, $namespace): array|string
     {
         $content = File::get($stubPath);
         return str_replace(
-            ['{{ namespace }}', '{{ name }}', '{{ name_upper }}', '{{ route_prefix }}', '{{ table_name }}', '{{ fillable }}', '{{ columns }}'],
+            ['{{ namespace }}', '{{ name }}', '{{ name }}', '{{ name_upper }}', '{{ route_prefix }}', '{{ table_name }}', '{{ fillable }}', '{{ columns }}'],
             [
                 $namespace,
                 $moduleName,

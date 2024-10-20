@@ -12,6 +12,9 @@ abstract class BaseServiceProvider extends ServiceProvider
 {
     protected function loadCommands($moduleName): void
     {
+        if (!$this->app->runningInConsole()) {
+            return;
+        }
         $module = 'app/' . $moduleName;
         $commandsPath = "$module/Presentation/Console/Commands";
 

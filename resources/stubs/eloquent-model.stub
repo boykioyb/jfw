@@ -16,6 +16,6 @@ class {{ name }} extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->setConnection(config('{{ name }}.database.connections.' . config('{{ name }}.database.default')));
+        $this->setConnection(config('{{ namespace }}.database.connections.' . config('{{ namespace }}.database.default')));
     }
 }
