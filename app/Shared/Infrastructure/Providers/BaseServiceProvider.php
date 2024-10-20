@@ -2,7 +2,9 @@
 
 namespace App\Shared\Infrastructure\Providers;
 
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -55,6 +57,12 @@ abstract class BaseServiceProvider extends ServiceProvider
         $routes = config($moduleName.'.routes');
 
         foreach ($routes as $route) {
+            if (!empty($route['rate_limit'])) {
+                RateLimiter::for($route['prefix'], function () use ($route) {
+                    return Limit::perMinute(60)->by(optional(request()->user())->id ?: request()->ip());
+                });
+            }
+
             Route::middleware($route['middleware'])
                 ->prefix($route['prefix'])
                 ->namespace($route['namespace'])

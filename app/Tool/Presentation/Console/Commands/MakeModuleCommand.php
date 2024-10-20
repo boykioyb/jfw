@@ -33,10 +33,10 @@ class MakeModuleCommand extends Command
             "app/$moduleName/Infrastructure/Persistence/Repositories",
             "app/$moduleName/Infrastructure/Persistence/Migrations",
             "app/$moduleName/Infrastructure/Config",
-            "app/$moduleName/Infrastructure/Middleware",
             "app/$moduleName/Infrastructure/Providers",
             "app/$moduleName/Presentation/API/Routes",
             "app/$moduleName/Presentation/API/Controllers",
+            "app/$moduleName/Presentation/API/Middleware",
             "app/$moduleName/Presentation/Console",
         ];
 
