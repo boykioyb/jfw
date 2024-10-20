@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 
 class MakeRepositoryCommand extends BaseCommand
 {
-    public $signature = 'make:repository {moduleName} {name}';
+    public $signature = 'make:repository {moduleName} {name} {--rm}';
 
     public function handle()
     {
@@ -17,6 +17,22 @@ class MakeRepositoryCommand extends BaseCommand
         $name = $this->argument('name');
         $directory = "app/$moduleName/Infrastructure/Persistence/Repositories";
         $directoryInterface = "app/$moduleName/Domain/Repositories";
+        $fileName = "{$name}RepositoryImpl.php";
+        $interfaceFileName = "I{$name}Repository.php";
+        $pathInterface = $directoryInterface . '/' . $interfaceFileName;
+        $path = $directory . '/' . $fileName;
+
+        if ($this->option('rm')) {
+            if (File::exists($pathInterface)) {
+                File::delete($pathInterface);
+                $this->info("Xóa interface: $pathInterface");
+            }
+            if (File::exists($path)) {
+                File::delete($path);
+                $this->info("Xóa repository: $path");
+            }
+            return;
+        }
         if (!File::isDirectory($directoryInterface)) {
             File::makeDirectory($directoryInterface, 0755, true);
         }
@@ -24,14 +40,11 @@ class MakeRepositoryCommand extends BaseCommand
         if (!File::isDirectory($directory)) {
             File::makeDirectory($directory, 0755, true);
         }
-        $fileName = "{$name}RepositoryImpl.php";
-        $interfaceFileName = "I{$name}Repository.php";
-        $pathInterface = $directoryInterface . '/' . $interfaceFileName;
+
         if (!File::exists($pathInterface)) {
             File::put($pathInterface, $this->getStubInterfaceContent($moduleName, $name));
             $this->info("Tạo interface: $pathInterface");
         }
-        $path = $directory . '/' . $fileName;
         if (!File::exists($path)) {
             File::put($path, $this->getStubContent($moduleName, $name));
             $this->info("Tạo repository: $path");
