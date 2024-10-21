@@ -81,7 +81,7 @@ abstract class BaseServiceProvider extends ServiceProvider
             }
 
             if (!empty($route['path'])) {
-                $routeConfig->group($route['path']);
+                $routeConfig->group(base_path($route['path']));
             }
 
         }

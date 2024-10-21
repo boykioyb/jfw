@@ -10,11 +10,19 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadModules();
+
+        // load file helpers
+        $helpers = base_path('app/Shared/Infrastructure/helpers.php');
+        if (file_exists($helpers)) {
+            require_once $helpers;
+        }
     }
 
     public function boot()
     {
-        //
+
+        $this->app['router']->aliasMiddleware('tracing', \App\Shared\Infrastructure\Middleware\TraceMiddleware::class);
+
     }
 
     protected function loadModules()
